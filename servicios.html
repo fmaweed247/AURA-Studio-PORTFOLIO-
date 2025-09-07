@@ -11,32 +11,64 @@
   <style>
     body { font-family: 'Inter', sans-serif; }
     h1, h2, h3 { font-family: 'Playfair Display', serif; }
-    .aura-gradient { background: linear-gradient(90deg,#b07b61,#d4a373); }
-    .aura-gradient-hover:hover { background: linear-gradient(90deg,#d4a373,#b07b61); transition: background 0.3s ease; }
+    .aura-gradient { background: linear-gradient(90deg, #b07b61, #d4a373); }
+    .aura-gradient-hover { 
+      background: linear-gradient(90deg, #b07b61, #d4a373); 
+      transition: all 0.3s ease-in-out; 
+      box-shadow: 0 4px 15px rgba(176, 123, 97, 0.4);
+    }
+    .aura-gradient-hover:hover { 
+      background: linear-gradient(90deg, #d4a373, #b07b61); 
+      box-shadow: 0 6px 20px rgba(212, 163, 115, 0.6);
+      transform: translateY(-2px);
+    }
+    .card-hover-effect {
+      transition: all 0.3s ease-in-out;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    }
+    .card-hover-effect:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    .hero-title-glow {
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 255, 255, 0.5);
+    }
+    html.dark .hero-title-glow {
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.2);
+    }
+    .input-focus-aura:focus {
+      border-color: #d4a373;
+      box-shadow: 0 0 0 3px rgba(212, 163, 115, 0.4);
+    }
   </style>
 </head>
 <body class="antialiased bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-100">
 
-  <button id="darkToggle" class="fixed top-4 right-4 z-50 p-2 rounded-full bg-gray-200 dark:bg-gray-700 shadow-lg text-xl">🌙</button>
+  <button id="darkToggle" class="fixed top-4 right-4 z-50 p-2 rounded-full bg-gray-200 dark:bg-gray-700 shadow-lg text-xl hover:scale-110 transition-transform">🌙</button>
 
   <header class="fixed top-0 left-0 right-0 z-40 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm shadow-sm">
     <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-      <a href="index.html" class="text-2xl font-bold tracking-wider">AURA</a>
-      <nav class="hidden md:flex space-x-8 uppercase text-sm">
-        <a href="index.html" class="hover:text-[#b07b61] transition-colors">Inicio</a>
-        <a href="servicios.html" class="text-[#b07b61] font-bold">Servicios</a>
-        <a href="estudio.html" class="hover:text-[#b07b61] transition-colors">El Estudio</a>
-        <a href="contacto.html" class="hover:text-[#b07b61] transition-colors">Contacto</a>
+      <a href="index.html" class="text-3xl font-bold tracking-wider flex items-center">
+        <svg class="h-8 w-8 mr-2 text-[#d4a373]" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm-.707-10.707a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586l-1.293-1.293z" clip-rule="evenodd"></path>
+        </svg>
+        AURA
+      </a>
+      <nav class="hidden md:flex space-x-8 uppercase text-sm font-medium">
+        <a href="index.html" class="relative group hover:text-[#b07b61] transition-colors">Inicio<span class="absolute inset-x-0 bottom-0 h-0.5 bg-[#b07b61] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span></a>
+        <a href="servicios.html" class="relative group text-[#b07b61] font-bold">Servicios<span class="absolute inset-x-0 bottom-0 h-0.5 bg-[#b07b61] transform scale-x-100"></span></a>
+        <a href="estudio.html" class="relative group hover:text-[#b07b61] transition-colors">El Estudio<span class="absolute inset-x-0 bottom-0 h-0.5 bg-[#b07b61] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span></a>
+        <a href="contacto.html" class="relative group hover:text-[#b07b61] transition-colors">Contacto<span class="absolute inset-x-0 bottom-0 h-0.5 bg-[#b07b61] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span></a>
       </nav>
-      <button id="mobile-menu-button" class="md:hidden text-2xl">
+      <button id="mobile-menu-button" class="md:hidden text-2xl p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
         <i class="fas fa-bars"></i>
       </button>
     </div>
-    <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-900">
-      <a href="index.html" class="block text-center py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-800">Inicio</a>
-      <a href="servicios.html" class="block text-center py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-800">Servicios</a>
-      <a href="estudio.html" class="block text-center py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-800">El Estudio</a>
-      <a href="contacto.html" class="block text-center py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-800">Contacto</a>
+    <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
+      <a href="index.html" class="block text-center py-3 px-4 text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">Inicio</a>
+      <a href="servicios.html" class="block text-center py-3 px-4 text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">Servicios</a>
+      <a href="estudio.html" class="block text-center py-3 px-4 text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">El Estudio</a>
+      <a href="contacto.html" class="block text-center py-3 px-4 text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">Contacto</a>
     </div>
   </header>
 
@@ -47,12 +79,12 @@
     </div>
 
     <div class="space-y-16">
-      <div class="flex flex-col md:flex-row items-center gap-8 bg-gray-50 dark:bg-gray-800 rounded-lg shadow-lg p-8">
-        <img src="https://placehold.co/400x300/B07B61/FFFFFF?text=Peluquería" class="w-full md:w-1/3 rounded-lg" alt="Corte de pelo de autor">
+      <div class="flex flex-col md:flex-row items-center gap-8 bg-gray-50 dark:bg-gray-800 rounded-lg shadow-lg p-8 card-hover-effect">
+        <img src="https://placehold.co/400x300/B07B61/FFFFFF?text=Peluquería" class="w-full md:w-1/3 rounded-lg object-cover h-64 md:h-auto" alt="Corte de pelo de autor">
         <div class="flex-1">
-          <h2 class="text-3xl font-bold mb-3">Peluquería de Autor</h2>
+          <h2 class="text-3xl font-bold mb-3 flex items-center"><i class="fas fa-cut mr-3 text-[#d4a373]"></i>Peluquería de Autor</h2>
           <p class="text-gray-600 dark:text-gray-300 mb-4">Desde cortes que definen tu estilo hasta coloraciones vibrantes y tratamientos de reparación profunda. Nuestro equipo de estilistas trabajará contigo para crear un look que te represente y te haga sentir increíble.</p>
-          <ul class="list-disc list-inside text-gray-600 dark:text-gray-300">
+          <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-1">
             <li>Cortes personalizados para mujer y hombre</li>
             <li>Coloración y mechas (Balayage, Babylights)</li>
             <li>Tratamientos de hidratación y keratina</li>
@@ -61,12 +93,12 @@
         </div>
       </div>
 
-      <div class="flex flex-col md:flex-row-reverse items-center gap-8 bg-gray-50 dark:bg-gray-800 rounded-lg shadow-lg p-8">
-        <img src="https://placehold.co/400x300/D4A373/FFFFFF?text=Estética" class="w-full md:w-1/3 rounded-lg" alt="Tratamiento facial avanzado">
+      <div class="flex flex-col md:flex-row-reverse items-center gap-8 bg-gray-50 dark:bg-gray-800 rounded-lg shadow-lg p-8 card-hover-effect">
+        <img src="https://placehold.co/400x300/D4A373/FFFFFF?text=Estética" class="w-full md:w-1/3 rounded-lg object-cover h-64 md:h-auto" alt="Tratamiento facial avanzado">
         <div class="flex-1">
-          <h2 class="text-3xl font-bold mb-3">Estética Avanzada</h2>
+          <h2 class="text-3xl font-bold mb-3 flex items-center"><i class="fas fa-magic mr-3 text-[#d4a373]"></i>Estética Avanzada</h2>
           <p class="text-gray-600 dark:text-gray-300 mb-4">Utilizamos la tecnología más innovadora y productos de alta gama para ofrecerte tratamientos faciales y corporales que transforman tu piel, devolviéndole su luminosidad y firmeza.</p>
-           <ul class="list-disc list-inside text-gray-600 dark:text-gray-300">
+           <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-1">
             <li>Limpieza facial profunda con microdermoabrasión</li>
             <li>Tratamientos antiedad y reafirmantes</li>
             <li>Peelings químicos</li>
@@ -75,12 +107,12 @@
         </div>
       </div>
 
-      <div class="flex flex-col md:flex-row items-center gap-8 bg-gray-50 dark:bg-gray-800 rounded-lg shadow-lg p-8">
-        <img src="https://placehold.co/400x300/635C51/FFFFFF?text=Bienestar" class="w-full md:w-1/3 rounded-lg" alt="Manicura y pedicura profesional">
+      <div class="flex flex-col md:flex-row items-center gap-8 bg-gray-50 dark:bg-gray-800 rounded-lg shadow-lg p-8 card-hover-effect">
+        <img src="https://placehold.co/400x300/635C51/FFFFFF?text=Bienestar" class="w-full md:w-1/3 rounded-lg object-cover h-64 md:h-auto" alt="Manicura y pedicura profesional">
         <div class="flex-1">
-          <h2 class="text-3xl font-bold mb-3">Rituales de Bienestar</h2>
+          <h2 class="text-3xl font-bold mb-3 flex items-center"><i class="fas fa-spa mr-3 text-[#d4a373]"></i>Rituales de Bienestar</h2>
           <p class="text-gray-600 dark:text-gray-300 mb-4">Dedícate un momento de paz y relajación con nuestros rituales. Manicuras y pedicuras spa, y masajes terapéuticos diseñados para liberar tensiones y renovar tu energía.</p>
-           <ul class="list-disc list-inside text-gray-600 dark:text-gray-300">
+           <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-1">
             <li>Manicura y pedicura SPA con esmaltado semipermanente</li>
             <li>Masajes relajantes y descontracturantes</li>
             <li>Reflexología podal</li>
@@ -93,11 +125,11 @@
   <footer class="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 mt-20">
     <div class="container mx-auto py-8 px-6 text-center text-gray-600 dark:text-gray-400">
       <div class="flex justify-center space-x-6 mb-4">
-        <a href="#" class="hover:text-[#b07b61]"><i class="fab fa-instagram fa-2x"></i></a>
-        <a href="#" class="hover:text-[#b07b61]"><i class="fab fa-facebook-f fa-2x"></i></a>
-        <a href="#" class="hover:text-[#b07b61]"><i class="fab fa-whatsapp fa-2x"></i></a>
+        <a href="#" class="text-2xl hover:text-[#b07b61] transform hover:scale-125 transition-transform"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="text-2xl hover:text-[#b07b61] transform hover:scale-125 transition-transform"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="text-2xl hover:text-[#b07b61] transform hover:scale-125 transition-transform"><i class="fab fa-whatsapp"></i></a>
       </div>
-      <p>&copy; 2025 AURA Studio. Todos los derechos reservados.</p>
+      <p class="text-sm">&copy; 2025 AURA Studio. Todos los derechos reservados.</p>
     </div>
   </footer>
 
