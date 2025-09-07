@@ -3,139 +3,69 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AURA Studio - Esculpiendo Belleza, Inspirando Confianza</title>
+  <title>AURA Studio - Inicio</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
-  <!-- Librería AOS Animations -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
     body { font-family: 'Inter', sans-serif; }
-    h1,h2,h3,h4 { font-family: 'Playfair Display', serif; }
+    h1,h2,h3 { font-family: 'Playfair Display', serif; }
     .aura-gradient { background: linear-gradient(90deg,#b07b61,#d4a373); }
-    .aura-gradient-hover { transition: 0.3s; }
     .aura-gradient-hover:hover { background: linear-gradient(90deg,#d4a373,#b07b61); }
-    /* Scroll Indicator */
-    .scroll-indicator {
-      position: absolute; bottom: 40px; left: 50%;
-      transform: translateX(-50%);
-      animation: bounce 2s infinite;
-    }
-    @keyframes bounce {
-      0%,100% { transform: translate(-50%,0); }
-      50% { transform: translate(-50%,10px); }
-    }
-    /* Botón flotante */
-    #cta-float {
-      position: fixed; bottom: 20px; right: 20px;
-      z-index: 50;
-    }
   </style>
 </head>
 <body class="antialiased bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-100">
 
-  <!-- Toggle Dark Mode -->
+  <!-- Botón Dark/Light -->
   <button id="darkToggle" class="fixed top-4 right-4 z-50 p-2 rounded-full bg-gray-200 dark:bg-gray-700 shadow-lg">
     🌙
   </button>
 
-  <!-- HEADER -->
-  <header id="main-header" class="fixed top-0 left-0 right-0 z-40 bg-white/70 dark:bg-gray-900/70 backdrop-blur-sm shadow-sm">
+  <!-- Header -->
+  <header class="fixed top-0 left-0 right-0 z-40 bg-white/70 dark:bg-gray-900/70 backdrop-blur-sm shadow-sm">
     <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-      <a href="#inicio" class="text-2xl font-bold tracking-wider">AURA</a>
-      <nav class="hidden md:flex space-x-8">
-        <a href="#inicio" class="uppercase tracking-wider">Inicio</a>
-        <a href="#servicios" class="uppercase tracking-wider">Servicios</a>
-        <a href="#estudio" class="uppercase tracking-wider">El Estudio</a>
-        <a href="#contacto" class="uppercase tracking-wider">Contacto</a>
+      <a href="index.html" class="text-2xl font-bold">AURA</a>
+      <nav class="hidden md:flex space-x-6 uppercase text-sm">
+        <a href="index.html">Inicio</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="estudio.html">El Estudio</a>
+        <a href="contacto.html">Contacto</a>
       </nav>
     </div>
   </header>
 
-  <!-- HERO -->
-  <section id="inicio" class="relative h-screen flex items-center justify-center text-center text-white">
-    <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover">
-      <source src="https://www.videvo.net/videvo_files/converted/2019_07/preview/190701_01_HairSalon_4k_005.mp425945.webm" type="video/webm">
-      <img src="https://placehold.co/1920x1080/635C51/FFFFFF?text=AURA" class="w-full h-full object-cover" alt="AURA Studio">
-    </video>
+  <!-- Hero -->
+  <section class="relative h-screen flex items-center justify-center text-center text-white">
+    <img src="https://placehold.co/1920x1080/635C51/FFFFFF?text=AURA" class="absolute inset-0 w-full h-full object-cover" alt="AURA Studio">
     <div class="absolute inset-0 bg-black/40"></div>
-    <div class="relative z-10" data-aos="fade-up">
+    <div class="relative z-10">
       <h1 class="text-5xl md:text-7xl font-bold">AURA Studio</h1>
       <p class="mt-4 text-lg md:text-2xl">Esculpiendo belleza, inspirando confianza</p>
-      <a href="#servicios" class="mt-8 inline-block px-8 py-3 rounded-full text-sm uppercase font-semibold text-white aura-gradient aura-gradient-hover shadow-lg">
+      <a href="servicios.html" class="mt-8 inline-block px-8 py-3 rounded-full text-sm font-semibold text-white aura-gradient aura-gradient-hover shadow-lg">
         Descubre tu estilo
       </a>
     </div>
-    <!-- Scroll Indicator -->
-    <div class="scroll-indicator text-white text-2xl">⬇</div>
   </section>
 
-  <!-- SERVICIOS -->
-  <section id="servicios" class="py-20 md:py-32 bg-gray-50 dark:bg-gray-800">
-    <div class="container mx-auto px-6 text-center">
-      <h2 class="text-4xl md:text-5xl mb-10" data-aos="fade-up">Nuestra Especialidad</h2>
-      <div class="grid md:grid-cols-3 gap-10">
-        <div class="p-8 rounded-lg bg-white dark:bg-gray-700 shadow-lg" data-aos="zoom-in">
-          <h3 class="text-2xl mb-2">Peluquería de Autor</h3>
-          <p>Cortes y coloraciones que definen tu personalidad y realzan tu belleza natural.</p>
-        </div>
-        <div class="p-8 rounded-lg bg-white dark:bg-gray-700 shadow-lg" data-aos="zoom-in" data-aos-delay="200">
-          <h3 class="text-2xl mb-2">Estética Avanzada</h3>
-          <p>Tratamientos faciales y corporales con la última tecnología para una piel radiante.</p>
-        </div>
-        <div class="p-8 rounded-lg bg-white dark:bg-gray-700 shadow-lg" data-aos="zoom-in" data-aos-delay="400">
-          <h3 class="text-2xl mb-2">Rituales de Bienestar</h3>
-          <p>Masajes, manicuras y pedicuras diseñados para tu relajación y cuidado total.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ESTUDIO -->
-  <section id="estudio" class="py-20 md:py-32">
-    <div class="container mx-auto px-6 text-center">
-      <h2 class="text-4xl md:text-5xl mb-6" data-aos="fade-right">Nuestro Espacio</h2>
-      <p class="max-w-2xl mx-auto text-gray-600 dark:text-gray-300" data-aos="fade-left">
-        AURA Studio ha sido diseñado como un santuario para los sentidos. Cada detalle ha sido cuidadosamente seleccionado para crear un ambiente de serenidad y sofisticación.
-      </p>
-    </div>
-  </section>
-
-  <!-- CONTACTO -->
-  <section id="contacto" class="py-20 md:py-32 bg-gray-100 dark:bg-gray-800">
-    <div class="container mx-auto px-6 text-center">
-      <h2 class="text-4xl md:text-5xl mb-6" data-aos="fade-up">Contacto y Cita</h2>
-      <form id="contact-form" class="max-w-lg mx-auto space-y-6" data-aos="zoom-in">
-        <input type="text" placeholder="Tu nombre" class="w-full px-4 py-3 rounded-md border dark:bg-gray-700">
-        <input type="email" placeholder="Tu correo" class="w-full px-4 py-3 rounded-md border dark:bg-gray-700">
-        <textarea placeholder="Tu mensaje" class="w-full px-4 py-3 rounded-md border dark:bg-gray-700"></textarea>
-        <button type="submit" class="w-full px-6 py-3 aura-gradient aura-gradient-hover rounded-full text-white font-semibold uppercase tracking-wider">
-          Enviar
-        </button>
-      </form>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="bg-white dark:bg-gray-900 py-12 text-center text-gray-600 dark:text-gray-400">
-    <p class="text-2xl font-serif">AURA Studio</p>
-    <p class="mt-2 text-sm">&copy; 2025 AURA Studio. Todos los derechos reservados.</p>
+  <!-- Footer -->
+  <footer class="bg-white dark:bg-gray-900 py-8 text-center text-gray-600 dark:text-gray-400">
+    <p>&copy; 2025 AURA Studio. Todos los derechos reservados.</p>
   </footer>
 
-  <!-- Botón Flotante -->
-  <a id="cta-float" href="#contacto" class="px-6 py-3 rounded-full text-white font-bold aura-gradient aura-gradient-hover shadow-xl">
-    Reserva ahora
-  </a>
-
-  <!-- Scripts -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    AOS.init({ duration: 1000, once: true });
-
-    // Dark Mode Toggle
-    const toggle = document.getElementById("darkToggle");
-    toggle.addEventListener("click", () => {
+    // Dark Mode Persistente
+    if (localStorage.getItem("theme") === "dark") {
+      document.documentElement.classList.add("dark");
+      document.getElementById("darkToggle").textContent = "☀️";
+    }
+    document.getElementById("darkToggle").addEventListener("click", () => {
       document.documentElement.classList.toggle("dark");
-      toggle.textContent = document.documentElement.classList.contains("dark") ? "☀️" : "🌙";
+      if (document.documentElement.classList.contains("dark")) {
+        localStorage.setItem("theme", "dark");
+        darkToggle.textContent = "☀️";
+      } else {
+        localStorage.setItem("theme", "light");
+        darkToggle.textContent = "🌙";
+      }
     });
   </script>
 </body>

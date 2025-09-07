@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AURA Studio - Servicios</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="antialiased bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-100">
+
+  <button id="darkToggle" class="fixed top-4 right-4 z-50 p-2 rounded-full bg-gray-200 dark:bg-gray-700 shadow-lg">🌙</button>
+
+  <header class="fixed top-0 left-0 right-0 z-40 bg-white/70 dark:bg-gray-900/70 backdrop-blur-sm shadow-sm">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="index.html" class="text-2xl font-bold">AURA</a>
+      <nav class="hidden md:flex space-x-6 uppercase text-sm">
+        <a href="index.html">Inicio</a>
+        <a href="servicios.html" class="font-bold">Servicios</a>
+        <a href="estudio.html">El Estudio</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="pt-32 container mx-auto px-6">
+    <h1 class="text-4xl font-bold mb-10">Nuestros Servicios</h1>
+    <ul class="space-y-6">
+      <li><strong>Peluquería de Autor:</strong> cortes y coloraciones únicos.</li>
+      <li><strong>Estética Avanzada:</strong> tratamientos faciales y corporales.</li>
+      <li><strong>Rituales de Bienestar:</strong> manicura, pedicura y masajes.</li>
+    </ul>
+  </main>
+
+  <footer class="bg-white dark:bg-gray-900 py-8 text-center text-gray-600 dark:text-gray-400 mt-16">
+    <p>&copy; 2025 AURA Studio. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    if (localStorage.getItem("theme") === "dark") {
+      document.documentElement.classList.add("dark");
+      darkToggle.textContent = "☀️";
+    }
+    darkToggle.addEventListener("click", () => {
+      document.documentElement.classList.toggle("dark");
+      if (document.documentElement.classList.contains("dark")) {
+        localStorage.setItem("theme", "dark");
+        darkToggle.textContent = "☀️";
+      } else {
+        localStorage.setItem("theme", "light");
+        darkToggle.textContent = "🌙";
+      }
+    });
+  </script>
+</body>
+</html>
