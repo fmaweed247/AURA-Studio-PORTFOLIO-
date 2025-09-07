@@ -7,44 +7,50 @@
   <title>AURA Studio - Inicio</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    /* Estilos base y de tema */
-    body { font-family: 'Inter', sans-serif; }
+    :root {
+      --brand-color: #D946EF; /* Fucsia vibrante */
+      --brand-color-hover: #C026D3;
+      --dark-bg: #1F2937; /* Gris Marengo */
+      --light-bg: #F9FAFB; /* Blanco Roto */
+    }
+    body { font-family: 'Poppins', sans-serif; }
     h1, h2, h3 { font-family: 'Playfair Display', serif; }
     
-    /* Efectos y transiciones mejorados */
+    .brand-text { color: var(--brand-color); }
+    .brand-bg { background-color: var(--brand-color); }
+    .brand-bg-hover:hover { background-color: var(--brand-color-hover); }
+
     .aura-gradient-hover { 
-      background: linear-gradient(90deg, #b07b61, #d4a373); 
+      background-color: var(--brand-color);
       transition: all 0.4s ease-in-out; 
-      box-shadow: 0 4px 15px rgba(176, 123, 97, 0.4);
+      box-shadow: 0 4px 15px rgba(217, 70, 239, 0.4);
     }
     .aura-gradient-hover:hover { 
-      background: linear-gradient(90deg, #d4a373, #b07b61); 
-      box-shadow: 0 8px 25px rgba(212, 163, 115, 0.6), 0 0 15px rgba(212, 163, 115, 0.4);
+      background-color: var(--brand-color-hover);
+      box-shadow: 0 8px 25px rgba(192, 38, 211, 0.6), 0 0 15px rgba(192, 38, 211, 0.4);
       transform: translateY(-3px);
     }
     .card-hover-effect {
       border: 1px solid transparent;
       transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
     }
     .card-hover-effect:hover {
       transform: translateY(-10px);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-      border-color: #d4a373;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+      border-color: var(--brand-color);
     }
     .hero-title-glow {
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 25px rgba(255, 255, 255, 0.6);
+      text-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
     }
     html.dark .hero-title-glow {
-      text-shadow: 0 0 15px rgba(255, 255, 255, 0.3), 0 0 30px rgba(212, 163, 115, 0.3);
+      text-shadow: 0 0 20px rgba(217, 70, 239, 0.5), 0 0 35px rgba(217, 70, 239, 0.3);
     }
     #darkToggle {
       transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55), background-color 0.3s;
     }
-    
-    /* Estilos para animaciones de scroll */
     .animate-on-scroll {
       opacity: 0;
       transform: translateY(30px);
@@ -58,71 +64,66 @@
     .delay-400 { transition-delay: 400ms; }
   </style>
 </head>
-<body class="antialiased bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-500">
+<body class="antialiased bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-500">
 
-  <!-- Botón Modo Noche/Día -->
-  <button id="darkToggle" class="fixed top-4 right-4 z-50 p-2 w-12 h-12 flex items-center justify-center rounded-full bg-gray-200 dark:bg-gray-700 shadow-lg text-xl hover:scale-110 transition-transform">🌙</button>
+  <button id="darkToggle" class="fixed top-4 right-4 z-50 p-2 w-12 h-12 flex items-center justify-center rounded-full bg-white dark:bg-gray-800 shadow-lg text-xl hover:scale-110 transition-transform">🌙</button>
 
-  <!-- Encabezado con efecto translúcido -->
   <header class="fixed top-0 left-0 right-0 z-40 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-sm transition-colors duration-500">
     <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-      <a href="index.html" class="text-3xl font-bold tracking-wider flex items-center">
+      <a href="index.html" class="text-3xl font-bold tracking-wider brand-text">
         AURA
       </a>
-      <nav class="hidden md:flex space-x-8 uppercase text-sm font-medium">
-        <a href="index.html" class="relative group text-[#b07b61] font-bold">Inicio<span class="absolute inset-x-0 bottom-0 h-0.5 bg-[#b07b61] transform scale-x-100 transition-transform duration-300 origin-center"></span></a>
-        <a href="servicios.html" class="relative group hover:text-[#b07b61] transition-colors">Servicios<span class="absolute inset-x-0 bottom-0 h-0.5 bg-[#b07b61] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></span></a>
-        <a href="estudio.html" class="relative group hover:text-[#b07b61] transition-colors">El Estudio<span class="absolute inset-x-0 bottom-0 h-0.5 bg-[#b07b61] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></span></a>
-        <a href="contacto.html" class="relative group hover:text-[#b07b61] transition-colors">Contacto<span class="absolute inset-x-0 bottom-0 h-0.5 bg-[#b07b61] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></span></a>
+      <nav class="hidden md:flex space-x-8 uppercase text-sm font-semibold tracking-wider">
+        <a href="index.html" class="relative group brand-text">Inicio<span class="absolute inset-x-0 bottom-0 h-0.5 brand-bg transform scale-x-100 transition-transform duration-300 origin-center"></span></a>
+        <a href="servicios.html" class="relative group hover:brand-text transition-colors">Servicios<span class="absolute inset-x-0 bottom-0 h-0.5 brand-bg transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></span></a>
+        <a href="estudio.html" class="relative group hover:brand-text transition-colors">El Estudio<span class="absolute inset-x-0 bottom-0 h-0.5 brand-bg transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></span></a>
+        <a href="contacto.html" class="relative group hover:brand-text transition-colors">Contacto<span class="absolute inset-x-0 bottom-0 h-0.5 brand-bg transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></span></a>
       </nav>
       <button id="mobile-menu-button" class="md:hidden text-2xl p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
         <i class="fas fa-bars"></i>
       </button>
     </div>
-    <!-- Menú Móvil -->
     <div id="mobile-menu" class="hidden opacity-0 md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 transition-opacity duration-300">
-      <a href="index.html" class="block text-center py-3 px-4 text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">Inicio</a>
-      <a href="servicios.html" class="block text-center py-3 px-4 text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">Servicios</a>
-      <a href="estudio.html" class="block text-center py-3 px-4 text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">El Estudio</a>
-      <a href="contacto.html" class="block text-center py-3 px-4 text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">Contacto</a>
+      <a href="index.html" class="block text-center py-3 px-4 text-sm font-semibold hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">Inicio</a>
+      <a href="servicios.html" class="block text-center py-3 px-4 text-sm font-semibold hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">Servicios</a>
+      <a href="estudio.html" class="block text-center py-3 px-4 text-sm font-semibold hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">El Estudio</a>
+      <a href="contacto.html" class="block text-center py-3 px-4 text-sm font-semibold hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">Contacto</a>
     </div>
   </header>
 
-  <!-- Sección Héroe con Parallax -->
   <section class="relative h-screen flex items-center justify-center text-center text-white overflow-hidden">
     <div class="absolute inset-0 w-full h-full overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1595834283895-7a3b379b7eda?q=80&w=1974&auto=format&fit=crop" class="w-full h-full object-cover hero-parallax-img" alt="">
+        <img src="https://images.unsplash.com/photo-1599387737563-3b8911f45674?q=80&w=1974&auto=format&fit=crop" class="w-full h-full object-cover hero-parallax-img" alt="Modelo con un peinado y maquillaje de alta costura">
     </div>
     <div class="absolute inset-0 bg-black/60"></div>
     <div class="relative z-10 px-4">
       <h1 class="text-5xl md:text-7xl font-bold hero-title-glow animate-on-scroll">AURA Studio</h1>
-      <p class="mt-4 text-lg md:text-2xl max-w-2xl mx-auto animate-on-scroll delay-200">Esculpiendo belleza, inspirando confianza</p>
+      <p class="mt-4 text-lg md:text-2xl max-w-2xl mx-auto font-light animate-on-scroll delay-200">Donde la creatividad encuentra tu estilo único.</p>
       <a href="servicios.html" class="mt-8 inline-block px-10 py-4 rounded-full text-base font-semibold text-white uppercase tracking-wider aura-gradient-hover shadow-lg animate-on-scroll delay-400">
-        Descubre nuestros servicios
+        Descubre tu look
       </a>
     </div>
   </section>
 
-  <!-- Sección Servicios -->
-  <section id="servicios" class="py-20 bg-gray-50 dark:bg-gray-800 transition-colors duration-500">
+  <section id="servicios" class="py-20 bg-white dark:bg-gray-900/50 transition-colors duration-500">
     <div class="container mx-auto px-6 text-center">
       <div class="animate-on-scroll">
         <h2 class="text-4xl font-bold mb-4">Un Espacio Para Ti</h2>
         <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-12">Ofrecemos una cuidada selección de servicios diseñados para realzar tu belleza natural y proporcionarte una experiencia de puro bienestar.</p>
       </div>
       <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-white dark:bg-gray-700 p-8 rounded-lg card-hover-effect animate-on-scroll">
-          <i class="fas fa-cut text-5xl text-[#d4a373] mb-4"></i>
+        <div class="bg-white dark:bg-gray-800 p-8 rounded-lg card-hover-effect animate-on-scroll">
+          <i class="fas fa-cut text-5xl brand-text mb-4"></i>
           <h3 class="text-2xl font-bold mb-2">Peluquería de Autor</h3>
           <p class="text-gray-700 dark:text-gray-300">Creaciones únicas en corte y color que reflejan tu personalidad y estilo.</p>
         </div>
-        <div class="bg-white dark:bg-gray-700 p-8 rounded-lg card-hover-effect animate-on-scroll delay-200">
-          <i class="fas fa-magic text-5xl text-[#d4a373] mb-4"></i>
+        <div class="bg-white dark:bg-gray-800 p-8 rounded-lg card-hover-effect animate-on-scroll delay-200">
+          <i class="fas fa-magic text-5xl brand-text mb-4"></i>
           <h3 class="text-2xl font-bold mb-2">Estética Avanzada</h3>
           <p class="text-gray-700 dark:text-gray-300">Tratamientos faciales y corporales con la última tecnología para cuidar tu piel.</p>
         </div>
-        <div class="bg-white dark:bg-gray-700 p-8 rounded-lg card-hover-effect animate-on-scroll delay-400">
-          <i class="fas fa-spa text-5xl text-[#d4a373] mb-4"></i>
+        <div class="bg-white dark:bg-gray-800 p-8 rounded-lg card-hover-effect animate-on-scroll delay-400">
+          <i class="fas fa-spa text-5xl brand-text mb-4"></i>
           <h3 class="text-2xl font-bold mb-2">Rituales de Bienestar</h3>
           <p class="text-gray-700 dark:text-gray-300">Manicura, pedicura y masajes relajantes para una desconexión total.</p>
         </div>
@@ -130,15 +131,14 @@
     </div>
   </section>
 
-  <!-- Sección Nuestro Estudio -->
-  <section class="py-20 overflow-hidden">
+  <section class="py-20 overflow-hidden bg-gray-50 dark:bg-gray-900 transition-colors duration-500">
       <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
           <div class="md:w-1/2 animate-on-scroll">
-              <img src="https://images.unsplash.com/photo-1512496015851-a90138ba0ea5?q=80&w=2070&auto=format&fit=crop" alt="" class="rounded-lg shadow-2xl card-hover-effect">
+              <img src="https://images.unsplash.com/photo-1560066984-138a98547690?q=80&w=2070&auto=format&fit=crop" alt="Interior minimalista y moderno del estudio de estilismo" class="rounded-lg shadow-2xl card-hover-effect">
           </div>
           <div class="md:w-1/2 text-center md:text-left animate-on-scroll delay-200">
               <h2 class="text-4xl font-bold mb-4">Nuestro Estudio</h2>
-              <p class="mb-6 text-gray-600 dark:text-gray-300">AURA Studio es un oasis diseñado para el bienestar, con espacios modernos, iluminación cálida y un ambiente de calma. Cada detalle está pensado para que tu visita sea una experiencia memorable.</p>
+              <p class="mb-6 text-gray-600 dark:text-gray-300">AURA Studio es un oasis de diseño, con espacios limpios, iluminación profesional y un ambiente creativo. Cada detalle está pensado para inspirar y hacer de tu visita una experiencia única.</p>
               <a href="estudio.html" class="px-10 py-4 rounded-full text-base font-semibold text-white uppercase tracking-wider aura-gradient-hover shadow-lg">
                   Conoce el espacio
               </a>
@@ -146,13 +146,12 @@
       </div>
   </section>
 
-  <!-- Pie de Página -->
-  <footer class="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 transition-colors duration-500">
+  <footer class="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 transition-colors duration-500">
     <div class="container mx-auto py-8 px-6 text-center text-gray-600 dark:text-gray-400">
       <div class="flex justify-center space-x-6 mb-4">
-        <a href="#" class="text-2xl hover:text-[#b07b61] transform hover:scale-125 transition-transform"><i class="fab fa-instagram"></i></a>
-        <a href="#" class="text-2xl hover:text-[#b07b61] transform hover:scale-125 transition-transform"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" class="text-2xl hover:text-[#b07b61] transform hover:scale-125 transition-transform"><i class="fab fa-whatsapp"></i></a>
+        <a href="#" class="text-2xl hover:brand-text transform hover:scale-125 transition-all"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="text-2xl hover:brand-text transform hover:scale-125 transition-all"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="text-2xl hover:brand-text transform hover:scale-125 transition-all"><i class="fab fa-whatsapp"></i></a>
       </div>
       <p class="text-sm">&copy; 2025 AURA Studio. Todos los derechos reservados.</p>
     </div>
@@ -161,3 +160,4 @@
   <script src="main.js"></script>
 </body>
 </html>
+
