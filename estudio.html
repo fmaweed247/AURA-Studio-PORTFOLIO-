@@ -8,63 +8,63 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
-  <style>
+    <style>
     body { font-family: 'Inter', sans-serif; }
     h1, h2, h3 { font-family: 'Playfair Display', serif; }
-    .aura-gradient { background: linear-gradient(90deg, #b07b61, #d4a373); }
     .aura-gradient-hover { 
       background: linear-gradient(90deg, #b07b61, #d4a373); 
-      transition: all 0.3s ease-in-out; 
+      transition: all 0.4s ease-in-out; 
       box-shadow: 0 4px 15px rgba(176, 123, 97, 0.4);
     }
     .aura-gradient-hover:hover { 
       background: linear-gradient(90deg, #d4a373, #b07b61); 
-      box-shadow: 0 6px 20px rgba(212, 163, 115, 0.6);
-      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(212, 163, 115, 0.6), 0 0 15px rgba(212, 163, 115, 0.4);
+      transform: translateY(-3px);
     }
     .card-hover-effect {
-      transition: all 0.3s ease-in-out;
+      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
       box-shadow: 0 4px 10px rgba(0,0,0,0.08);
     }
     .card-hover-effect:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
     }
-    .hero-title-glow {
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 255, 255, 0.5);
+    #darkToggle {
+      transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55), background-color 0.3s;
     }
-    html.dark .hero-title-glow {
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.2);
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease-out, transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
     }
-    .input-focus-aura:focus {
-      border-color: #d4a373;
-      box-shadow: 0 0 0 3px rgba(212, 163, 115, 0.4);
+    .animate-on-scroll.is-visible {
+      opacity: 1;
+      transform: translateY(0);
     }
+    .delay-200 { transition-delay: 200ms; }
+    .delay-400 { transition-delay: 400ms; }
   </style>
 </head>
-<body class="antialiased bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-100">
+<body class="antialiased bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-500">
 
-  <button id="darkToggle" class="fixed top-4 right-4 z-50 p-2 rounded-full bg-gray-200 dark:bg-gray-700 shadow-lg text-xl hover:scale-110 transition-transform">🌙</button>
+  <button id="darkToggle" class="fixed top-4 right-4 z-50 p-2 w-12 h-12 flex items-center justify-center rounded-full bg-gray-200 dark:bg-gray-700 shadow-lg text-xl hover:scale-110 transition-transform">🌙</button>
 
-  <header class="fixed top-0 left-0 right-0 z-40 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm shadow-sm">
+  <header class="fixed top-0 left-0 right-0 z-40 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-sm transition-colors duration-500">
     <div class="container mx-auto px-6 py-4 flex justify-between items-center">
       <a href="index.html" class="text-3xl font-bold tracking-wider flex items-center">
-        <svg class="h-8 w-8 mr-2 text-[#d4a373]" fill="currentColor" viewBox="0 0 20 20">
-          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm-.707-10.707a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586l-1.293-1.293z" clip-rule="evenodd"></path>
-        </svg>
         AURA
       </a>
       <nav class="hidden md:flex space-x-8 uppercase text-sm font-medium">
-        <a href="index.html" class="relative group hover:text-[#b07b61] transition-colors">Inicio<span class="absolute inset-x-0 bottom-0 h-0.5 bg-[#b07b61] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span></a>
-        <a href="servicios.html" class="relative group hover:text-[#b07b61] transition-colors">Servicios<span class="absolute inset-x-0 bottom-0 h-0.5 bg-[#b07b61] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span></a>
-        <a href="estudio.html" class="relative group text-[#b07b61] font-bold">El Estudio<span class="absolute inset-x-0 bottom-0 h-0.5 bg-[#b07b61] transform scale-x-100"></span></a>
-        <a href="contacto.html" class="relative group hover:text-[#b07b61] transition-colors">Contacto<span class="absolute inset-x-0 bottom-0 h-0.5 bg-[#b07b61] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span></a>
+        <a href="index.html" class="relative group hover:text-[#b07b61] transition-colors">Inicio<span class="absolute inset-x-0 bottom-0 h-0.5 bg-[#b07b61] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></span></a>
+        <a href="servicios.html" class="relative group hover:text-[#b07b61] transition-colors">Servicios<span class="absolute inset-x-0 bottom-0 h-0.5 bg-[#b07b61] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></span></a>
+        <a href="estudio.html" class="relative group text-[#b07b61] font-bold">El Estudio<span class="absolute inset-x-0 bottom-0 h-0.5 bg-[#b07b61] transform scale-x-100 transition-transform duration-300 origin-center"></span></a>
+        <a href="contacto.html" class="relative group hover:text-[#b07b61] transition-colors">Contacto<span class="absolute inset-x-0 bottom-0 h-0.5 bg-[#b07b61] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></span></a>
       </nav>
       <button id="mobile-menu-button" class="md:hidden text-2xl p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
         <i class="fas fa-bars"></i>
       </button>
     </div>
-    <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
+    <div id="mobile-menu" class="hidden opacity-0 md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 transition-opacity duration-300">
       <a href="index.html" class="block text-center py-3 px-4 text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">Inicio</a>
       <a href="servicios.html" class="block text-center py-3 px-4 text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">Servicios</a>
       <a href="estudio.html" class="block text-center py-3 px-4 text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">El Estudio</a>
@@ -73,30 +73,30 @@
   </header>
 
   <main class="pt-32 container mx-auto px-6">
-    <div class="text-center mb-12">
+    <div class="text-center mb-12 animate-on-scroll">
       <h1 class="text-4xl md:text-5xl font-bold mb-4">Nuestro Espacio</h1>
       <p class="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">Un refugio de paz y belleza en medio de la ciudad.</p>
     </div>
 
     <div class="grid md:grid-cols-2 gap-12 items-center">
-      <div class="space-y-4">
+      <div class="space-y-4 animate-on-scroll">
         <h2 class="text-3xl font-bold flex items-center"><i class="fas fa-couch mr-3 text-[#d4a373]"></i>Diseñado para el Bienestar</h2>
         <p class="text-gray-600 dark:text-gray-300">AURA Studio es un oasis diseñado para el bienestar, con espacios modernos, iluminación cálida y un ambiente de calma. Cada rincón ha sido cuidadosamente decorado con materiales naturales, tonos tierra y una estética minimalista para invitar a la relajación desde el momento en que entras.</p>
         <p class="text-gray-600 dark:text-gray-300">Nuestra filosofía es que el entorno es una parte fundamental de la experiencia. Por eso, hemos creado un lugar donde la belleza exterior e interior se encuentran en perfecta armonía.</p>
       </div>
-      <div>
-        <img src="https://placehold.co/600x450/635C51/FFFFFF?text=AURA+Interior" alt="Interior del estudio con sillones cómodos" class="rounded-lg shadow-xl card-hover-effect">
+      <div class="animate-on-scroll delay-200">
+        <img src="https://images.unsplash.com/photo-1616046229478-9901c5536a45?q=80&w=2070&auto=format&fit=crop" alt="" class="rounded-lg shadow-xl card-hover-effect">
       </div>
     </div>
     
-    <div class="grid md:grid-cols-3 gap-6 mt-12">
-        <img src="https://placehold.co/400x300/B07B61/FFFFFF?text=Productos" alt="Detalle de productos en estantería" class="rounded-lg w-full h-64 object-cover shadow-md card-hover-effect">
-        <img src="https://placehold.co/400x300/D4A373/FFFFFF?text=Manicura" alt="Zona de manicura" class="rounded-lg w-full h-64 object-cover shadow-md card-hover-effect">
-        <img src="https://placehold.co/400x300/E9D8C3/FFFFFF?text=Cabina" alt="Cabina de tratamiento facial" class="rounded-lg w-full h-64 object-cover shadow-md card-hover-effect">
+    <div class="grid md:grid-cols-3 gap-6 mt-16">
+        <img src="https://images.unsplash.com/photo-1556742059-4f9509a562dc?q=80&w=2070&auto=format&fit=crop" alt="" class="rounded-lg w-full h-64 object-cover shadow-md card-hover-effect animate-on-scroll">
+        <img src="https://images.unsplash.com/photo-1615826040582-780999035e58?q=80&w=1974&auto=format&fit=crop" alt="" class="rounded-lg w-full h-64 object-cover shadow-md card-hover-effect animate-on-scroll delay-200">
+        <img src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80&w=1974&auto=format&fit=crop" alt="" class="rounded-lg w-full h-64 object-cover shadow-md card-hover-effect animate-on-scroll delay-400">
     </div>
   </main>
 
-  <footer class="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 mt-20">
+  <footer class="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 mt-20 transition-colors duration-500">
     <div class="container mx-auto py-8 px-6 text-center text-gray-600 dark:text-gray-400">
       <div class="flex justify-center space-x-6 mb-4">
         <a href="#" class="text-2xl hover:text-[#b07b61] transform hover:scale-125 transition-transform"><i class="fab fa-instagram"></i></a>
