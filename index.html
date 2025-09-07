@@ -3,70 +3,102 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AURA Studio: Esculpiendo belleza e inspirando confianza a través de servicios de peluquería de autor, estética avanzada y rituales de bienestar.">
   <title>AURA Studio - Inicio</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
     body { font-family: 'Inter', sans-serif; }
-    h1,h2,h3 { font-family: 'Playfair Display', serif; }
+    h1, h2, h3 { font-family: 'Playfair Display', serif; }
     .aura-gradient { background: linear-gradient(90deg,#b07b61,#d4a373); }
-    .aura-gradient-hover:hover { background: linear-gradient(90deg,#d4a373,#b07b61); }
+    .aura-gradient-hover:hover { background: linear-gradient(90deg,#d4a373,#b07b61); transition: background 0.3s ease; }
   </style>
 </head>
 <body class="antialiased bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-100">
 
-  <!-- Botón Dark/Light -->
-  <button id="darkToggle" class="fixed top-4 right-4 z-50 p-2 rounded-full bg-gray-200 dark:bg-gray-700 shadow-lg">
-    🌙
-  </button>
+  <button id="darkToggle" class="fixed top-4 right-4 z-50 p-2 rounded-full bg-gray-200 dark:bg-gray-700 shadow-lg text-xl">🌙</button>
 
-  <!-- Header -->
-  <header class="fixed top-0 left-0 right-0 z-40 bg-white/70 dark:bg-gray-900/70 backdrop-blur-sm shadow-sm">
+  <header class="fixed top-0 left-0 right-0 z-40 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm shadow-sm">
     <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-      <a href="index.html" class="text-2xl font-bold">AURA</a>
-      <nav class="hidden md:flex space-x-6 uppercase text-sm">
-        <a href="index.html">Inicio</a>
-        <a href="servicios.html">Servicios</a>
-        <a href="estudio.html">El Estudio</a>
-        <a href="contacto.html">Contacto</a>
+      <a href="index.html" class="text-2xl font-bold tracking-wider">AURA</a>
+      <nav class="hidden md:flex space-x-8 uppercase text-sm">
+        <a href="index.html" class="hover:text-[#b07b61] transition-colors">Inicio</a>
+        <a href="servicios.html" class="hover:text-[#b07b61] transition-colors">Servicios</a>
+        <a href="estudio.html" class="hover:text-[#b07b61] transition-colors">El Estudio</a>
+        <a href="contacto.html" class="hover:text-[#b07b61] transition-colors">Contacto</a>
       </nav>
+      <button id="mobile-menu-button" class="md:hidden text-2xl">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-900">
+      <a href="index.html" class="block text-center py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-800">Inicio</a>
+      <a href="servicios.html" class="block text-center py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-800">Servicios</a>
+      <a href="estudio.html" class="block text-center py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-800">El Estudio</a>
+      <a href="contacto.html" class="block text-center py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-800">Contacto</a>
     </div>
   </header>
 
-  <!-- Hero -->
   <section class="relative h-screen flex items-center justify-center text-center text-white">
-    <img src="https://placehold.co/1920x1080/635C51/FFFFFF?text=AURA" class="absolute inset-0 w-full h-full object-cover" alt="AURA Studio">
-    <div class="absolute inset-0 bg-black/40"></div>
-    <div class="relative z-10">
+    <img src="https://placehold.co/1920x1080/635C51/FFFFFF?text=AURA" class="absolute inset-0 w-full h-full object-cover" alt="Interior elegante de AURA Studio">
+    <div class="absolute inset-0 bg-black/50"></div>
+    <div class="relative z-10 px-4">
       <h1 class="text-5xl md:text-7xl font-bold">AURA Studio</h1>
-      <p class="mt-4 text-lg md:text-2xl">Esculpiendo belleza, inspirando confianza</p>
-      <a href="servicios.html" class="mt-8 inline-block px-8 py-3 rounded-full text-sm font-semibold text-white aura-gradient aura-gradient-hover shadow-lg">
-        Descubre tu estilo
+      <p class="mt-4 text-lg md:text-2xl max-w-2xl mx-auto">Esculpiendo belleza, inspirando confianza</p>
+      <a href="servicios.html" class="mt-8 inline-block px-8 py-3 rounded-full text-sm font-semibold text-white uppercase tracking-wider aura-gradient aura-gradient-hover shadow-lg">
+        Descubre nuestros servicios
       </a>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="bg-white dark:bg-gray-900 py-8 text-center text-gray-600 dark:text-gray-400">
-    <p>&copy; 2025 AURA Studio. Todos los derechos reservados.</p>
+  <section id="servicios" class="py-20 bg-gray-50 dark:bg-gray-800">
+    <div class="container mx-auto px-6 text-center">
+      <h2 class="text-4xl font-bold mb-4">Un Espacio Para Ti</h2>
+      <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-12">Ofrecemos una cuidada selección de servicios diseñados para realzar tu belleza natural y proporcionarte una experiencia de puro bienestar.</p>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white dark:bg-gray-700 p-8 rounded-lg shadow-md">
+          <h3 class="text-2xl font-bold mb-2">Peluquería de Autor</h3>
+          <p>Creaciones únicas en corte y color que reflejan tu personalidad y estilo.</p>
+        </div>
+        <div class="bg-white dark:bg-gray-700 p-8 rounded-lg shadow-md">
+          <h3 class="text-2xl font-bold mb-2">Estética Avanzada</h3>
+          <p>Tratamientos faciales y corporales con la última tecnología para cuidar tu piel.</p>
+        </div>
+        <div class="bg-white dark:bg-gray-700 p-8 rounded-lg shadow-md">
+          <h3 class="text-2xl font-bold mb-2">Rituales de Bienestar</h3>
+          <p>Manicura, pedicura y masajes relajantes para una desconexión total.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20">
+      <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
+          <div class="md:w-1/2">
+              <img src="https://placehold.co/600x400/D4A373/FFFFFF?text=El+Estudio" alt="Ambiente relajante de AURA Studio" class="rounded-lg shadow-2xl">
+          </div>
+          <div class="md:w-1/2 text-center md:text-left">
+              <h2 class="text-4xl font-bold mb-4">Nuestro Estudio</h2>
+              <p class="mb-6 text-gray-600 dark:text-gray-300">AURA Studio es un oasis diseñado para el bienestar, con espacios modernos, iluminación cálida y un ambiente de calma. Cada detalle está pensado para que tu visita sea una experiencia memorable.</p>
+              <a href="estudio.html" class="px-8 py-3 rounded-full text-sm font-semibold text-white uppercase tracking-wider aura-gradient aura-gradient-hover shadow-lg">
+                  Conoce el espacio
+              </a>
+          </div>
+      </div>
+  </section>
+
+  <footer class="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
+    <div class="container mx-auto py-8 px-6 text-center text-gray-600 dark:text-gray-400">
+      <div class="flex justify-center space-x-6 mb-4">
+        <a href="#" class="hover:text-[#b07b61]"><i class="fab fa-instagram fa-2x"></i></a>
+        <a href="#" class="hover:text-[#b07b61]"><i class="fab fa-facebook-f fa-2x"></i></a>
+        <a href="#" class="hover:text-[#b07b61]"><i class="fab fa-whatsapp fa-2x"></i></a>
+      </div>
+      <p>&copy; 2025 AURA Studio. Todos los derechos reservados.</p>
+    </div>
   </footer>
 
-  <script>
-    // Dark Mode Persistente
-    if (localStorage.getItem("theme") === "dark") {
-      document.documentElement.classList.add("dark");
-      document.getElementById("darkToggle").textContent = "☀️";
-    }
-    document.getElementById("darkToggle").addEventListener("click", () => {
-      document.documentElement.classList.toggle("dark");
-      if (document.documentElement.classList.contains("dark")) {
-        localStorage.setItem("theme", "dark");
-        darkToggle.textContent = "☀️";
-      } else {
-        localStorage.setItem("theme", "light");
-        darkToggle.textContent = "🌙";
-      }
-    });
-  </script>
+  <script src="main.js"></script>
 </body>
 </html>
